@@ -1,0 +1,831 @@
+/*==================================================
+  Nature Escape - style.css
+  Part 1
+==================================================*/
+
+/*========== Google Font ==========*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/*========== Variables ==========*/
+:root{
+    --primary:#198754;
+    --primary-dark:#146c43;
+    --secondary:#6c757d;
+    --light:#ffffff;
+    --dark:#212529;
+    --gray:#f8f9fa;
+    --text:#333333;
+
+    --shadow:0 8px 20px rgba(0,0,0,.15);
+    --radius:16px;
+    --transition:.35s ease;
+}
+
+/*========== Reset ==========*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fff;
+    color:var(--text);
+    line-height:1.7;
+    overflow-x:hidden;
+    transition:background .4s,color .4s;
+}
+
+/*========== Dark Mode ==========*/
+
+body.dark-mode{
+    background:#121212;
+    color:#eeeeee;
+}
+
+body.dark-mode section{
+    background:#121212;
+}
+
+body.dark-mode .bg-light{
+    background:#1d1d1d!important;
+}
+
+body.dark-mode .card{
+    background:#1f1f1f;
+    color:#ffffff;
+}
+
+body.dark-mode .modal-content{
+    background:#1f1f1f;
+    color:white;
+}
+
+body.dark-mode footer{
+    background:#000!important;
+}
+
+body.dark-mode .accordion-item{
+    background:#1f1f1f;
+    color:white;
+}
+
+body.dark-mode .form-control{
+    background:#2a2a2a;
+    color:white;
+    border-color:#444;
+}
+
+body.dark-mode .form-control::placeholder{
+    color:#bdbdbd;
+}
+
+body.dark-mode .page-header{
+    background:#0d3b28;
+}
+
+/*========== Links ==========*/
+
+a{
+    text-decoration:none;
+    transition:var(--transition);
+}
+
+a:hover{
+    color:var(--primary);
+}
+
+/*========== Images ==========*/
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/*========== Navbar ==========*/
+
+.glass-navbar{
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(12px);
+
+    transition:.4s;
+
+    padding:15px 0;
+
+}
+
+.navbar-brand{
+
+    font-size:1.4rem;
+
+    letter-spacing:.5px;
+
+}
+
+.navbar .nav-link{
+
+    color:white!important;
+
+    margin-left:15px;
+
+    font-weight:500;
+
+    position:relative;
+
+}
+
+.navbar .nav-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-5px;
+
+    width:0;
+
+    height:2px;
+
+    background:white;
+
+    transition:.3s;
+
+}
+
+.navbar .nav-link:hover::after,
+
+.navbar .nav-link.active::after{
+
+    width:100%;
+
+}
+
+.navbar-toggler{
+
+    border:none;
+
+}
+
+.navbar-toggler:focus{
+
+    box-shadow:none;
+
+}
+
+/*========== Hero Section ==========*/
+
+.hero-section{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),
+        rgba(0,0,0,.45)),
+        url("../images/hero.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+.hero-section h1{
+
+    font-weight:700;
+
+    animation:fadeUp 1s ease;
+
+}
+
+.hero-section p{
+
+    animation:fadeUp 1.3s ease;
+
+}
+
+/*========== Page Header ==========*/
+
+.page-header{
+
+    padding:150px 20px 90px;
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),
+        rgba(0,0,0,.45)),
+        url("../images/header.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    text-align:center;
+
+}
+
+.page-header h1{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+/*========== Buttons ==========*/
+
+.btn{
+
+    border-radius:30px;
+
+    transition:var(--transition);
+
+    font-weight:500;
+
+}
+
+.btn-success{
+
+    background:var(--primary);
+
+    border:none;
+
+}
+
+.btn-success:hover{
+
+    background:var(--primary-dark);
+
+    transform:translateY(-2px);
+
+}
+
+.btn-outline-light:hover{
+
+    color:var(--dark);
+
+}
+
+/*========== Section ==========*/
+
+section{
+
+    padding-top:60px;
+
+    padding-bottom:60px;
+
+}
+
+/*==================================================
+  Nature Escape - style.css
+  Part 2
+==================================================*/
+
+/*========== Card ==========*/
+
+.card{
+    border:none;
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+    background:#fff;
+}
+
+.card-hover:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.card-img-top{
+    height:250px;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.card:hover .card-img-top{
+    transform:scale(1.08);
+}
+
+.card-title{
+    font-weight:600;
+    color:var(--primary);
+}
+
+.card-text{
+    color:#666;
+}
+
+body.dark-mode .card-text{
+    color:#d0d0d0;
+}
+
+/*========== Featured Statistics ==========*/
+
+section .text-success{
+    font-weight:700;
+}
+
+section h2{
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/*========== Gallery ==========*/
+
+.gallery-img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    cursor:pointer;
+    transition:var(--transition);
+    border-radius:var(--radius);
+}
+
+.gallery-img:hover{
+    transform:scale(1.05);
+    box-shadow:0 12px 25px rgba(0,0,0,.25);
+}
+
+.gallery-img:active{
+    transform:scale(.98);
+}
+
+/*========== Modal ==========*/
+
+.modal-content{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.modal-header{
+    border-bottom:none;
+}
+
+.modal-footer{
+    border-top:none;
+}
+
+#modalImage{
+    border-radius:15px;
+    max-height:75vh;
+    object-fit:contain;
+}
+
+/*========== Forms ==========*/
+
+.form-control{
+    border-radius:12px;
+    padding:12px 15px;
+    transition:var(--transition);
+}
+
+.form-control:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 .2rem rgba(25,135,84,.25);
+}
+
+textarea.form-control{
+    resize:none;
+}
+
+label{
+    font-weight:500;
+}
+
+/*========== Input Group ==========*/
+
+.input-group .btn{
+    border-radius:0 12px 12px 0;
+}
+
+.input-group .form-control{
+    border-radius:12px 0 0 12px;
+}
+
+/*========== Accordion ==========*/
+
+.accordion-item{
+    border:none;
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.accordion-button{
+    font-weight:600;
+}
+
+.accordion-button:not(.collapsed){
+    background:var(--primary);
+    color:#fff;
+}
+
+.accordion-button:focus{
+    box-shadow:none;
+}
+
+/*========== Contact Card ==========*/
+
+.card i{
+    color:var(--primary);
+}
+
+.card hr{
+    margin:20px 0;
+}
+
+/*========== Social Icons ==========*/
+
+footer i,
+.card i.bi-facebook,
+.card i.bi-instagram,
+.card i.bi-twitter-x,
+.card i.bi-youtube{
+    transition:var(--transition);
+    cursor:pointer;
+}
+
+footer i:hover,
+.card i:hover{
+    color:var(--primary);
+    transform:translateY(-4px);
+}
+
+/*========== Footer ==========*/
+
+footer{
+    background:#212529;
+}
+
+footer p{
+    margin-bottom:15px;
+}
+
+footer i{
+    font-size:1.4rem;
+}
+
+/*========== Map ==========*/
+
+.ratio{
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+}
+
+/*========== Search Box ==========*/
+
+#searchInput{
+    border-radius:30px;
+    padding:14px 20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+#searchInput:focus{
+    box-shadow:0 0 0 .25rem rgba(25,135,84,.25);
+}
+
+/*========== Destination Cards Animation ==========*/
+
+.destination-card{
+    transition:var(--transition);
+}
+
+.destination-card.hidden{
+    display:none;
+}
+
+/*========== Toast ==========*/
+
+.toast{
+    border:none;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+}
+
+.toast-header{
+    background:var(--primary);
+    color:#fff;
+}
+
+.toast-body{
+    background:#fff;
+}
+
+body.dark-mode .toast-body{
+    background:#1f1f1f;
+    color:#fff;
+}
+
+/*==================================================
+  Nature Escape - style.css
+  Part 3
+==================================================*/
+
+/*========== Back To Top Button ==========*/
+
+#backToTop{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    opacity:0;
+    visibility:hidden;
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+
+#backToTop.show{
+    opacity:1;
+    visibility:visible;
+}
+
+#backToTop:hover{
+    transform:translateY(-5px);
+}
+
+/*========== Loading Spinner ==========*/
+
+#loading{
+    position:fixed;
+    inset:0;
+    background:#ffffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+body.dark-mode #loading{
+    background:#121212;
+}
+
+/*========== Hero Content ==========*/
+
+.hero-section .btn{
+    margin-top:15px;
+}
+
+.hero-section .lead{
+    max-width:600px;
+}
+
+/*========== Images ==========*/
+
+img{
+    border-radius:10px;
+}
+
+.shadow{
+    transition:var(--transition);
+}
+
+.shadow:hover{
+    box-shadow:0 15px 30px rgba(0,0,0,.18)!important;
+}
+
+/*========== Icons ==========*/
+
+.bi{
+    transition:var(--transition);
+}
+
+/*========== Fade Animation Classes ==========*/
+
+.fade-in{
+    animation:fadeIn 1s ease;
+}
+
+.fade-up{
+    animation:fadeUp .8s ease;
+}
+
+.zoom-in{
+    animation:zoomIn .8s ease;
+}
+
+/*========== Utility ==========*/
+
+.rounded-xl{
+    border-radius:20px;
+}
+
+.text-justify{
+    text-align:justify;
+}
+
+.bg-gradient-green{
+    background:linear-gradient(135deg,#198754,#20c997);
+    color:#fff;
+}
+
+.min-vh-80{
+    min-height:80vh;
+}
+
+/*========== Navbar Scroll Effect ==========*/
+
+.navbar.scrolled{
+    background:rgba(25,25,25,.92);
+    padding:10px 0;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+}
+
+/*========== Selection ==========*/
+
+::selection{
+    background:var(--primary);
+    color:#fff;
+}
+
+/*========== Scrollbar ==========*/
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--primary);
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--primary-dark);
+}
+
+body.dark-mode::-webkit-scrollbar-track{
+    background:#1f1f1f;
+}
+
+/*========== Keyframes ==========*/
+
+@keyframes fadeUp{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+        opacity:0;
+        transform:scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+/*========== Responsive ==========*/
+
+@media (max-width:992px){
+
+    .hero-section{
+        background-attachment:scroll;
+        text-align:center;
+    }
+
+    .hero-section h1{
+        font-size:2.7rem;
+    }
+
+    .page-header{
+        padding:130px 20px 70px;
+    }
+
+}
+
+@media (max-width:768px){
+
+    .hero-section{
+        min-height:85vh;
+    }
+
+    .hero-section h1{
+        font-size:2.2rem;
+    }
+
+    .hero-section p{
+        font-size:1rem;
+    }
+
+    .gallery-img{
+        height:220px;
+    }
+
+    .card-img-top{
+        height:220px;
+    }
+
+    footer{
+        text-align:center;
+    }
+
+    #backToTop{
+        right:15px;
+        bottom:15px;
+    }
+
+}
+
+@media (max-width:576px){
+
+    .navbar-brand{
+        font-size:1.15rem;
+    }
+
+    .hero-section h1{
+        font-size:1.8rem;
+    }
+
+    .page-header h1{
+        font-size:2rem;
+    }
+
+    .gallery-img{
+        height:200px;
+    }
+
+    .card-img-top{
+        height:200px;
+    }
+
+    .btn{
+        font-size:.95rem;
+    }
+
+    section{
+        padding-top:45px;
+        padding-bottom:45px;
+    }
+
+}
+
+/*========== Print ==========*/
+
+@media print{
+
+    .navbar,
+    footer,
+    #backToTop,
+    .btn{
+        display:none!important;
+    }
+
+    body{
+        background:#fff;
+        color:#000;
+    }
+
+}
+
+/*========== End of File ==========*/
